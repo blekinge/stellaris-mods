@@ -1,2 +1,11 @@
 #Symlink to  ~/.local/share/Steam/steamapps/common/Stellaris/
 Stellaris/
+
+#ln -s ~/.local/share/Steam/steamapps/workshop/content/281990/ workshop
+workshop/
+
+#ln -s ~/.local/share/Paradox\ Interactive/Stellaris/mod/ mod
+mod/
+
+#ln -s ~/.local/share/Paradox\ Interactive/Stellaris/logs/ logs
+logs
