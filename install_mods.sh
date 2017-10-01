@@ -5,9 +5,10 @@ MOD_DIR="$HOME/.local/share/Paradox Interactive/Stellaris/mod"
 
 for file in $SCRIPT_DIR/*.mod; do
     modname=$(basename "$file" .mod)
-    rm -f "$MOD_DIR/$modname"
+    rm -rf "$MOD_DIR/$modname"
     rm -f "$MOD_DIR/$modname.mod"
-    cp  "$file" "$MOD_DIR/$modname.mod"
+    cp "$file" "$MOD_DIR/$modname.mod"
+    echo -e "\n" >>  "$MOD_DIR/$modname.mod"
     cp -r "$SCRIPT_DIR/$modname" "$MOD_DIR/$modname"
 done
 
