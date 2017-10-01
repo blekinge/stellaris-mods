@@ -1,0 +1,46 @@
+namespace = lateftl_surveyed
+
+# The event that starts it all
+country_event = {
+	id = lateftl_surveyed.1
+    hide_window = yes
+
+    #Trigger after one day
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+
+	    #Do not trigger twice for the same empire
+	    NOT = { has_country_flag = lateftl_surveyed_starting_event }
+
+        #Only trigger for empires with capitals
+	    exists = capital_scope
+	}
+
+	immediate = {
+
+	    #Set this flag so this event will not trigger again for this country
+		set_country_flag = lateftl_surveyed_starting_event
+
+        #As this is a country event, the root scope is the country it triggered for
+        #root scope: country
+
+        capital_scope = {     #Scopes to the capital planet of this country.
+
+            solar_system = {    #Scopes to system this country/ship/planet is in.
+
+                every_system_planet = {    #Scopes to all planets in this system.
+
+                    surveyed = {    #Sets a planet as surveyed by a specific country
+                        set_surveyed = yes
+                        surveyor = ROOT    #ROOT refers the root scope, which is country
+                    }
+                }
+            }
+        }
+
+	}
+
+}
