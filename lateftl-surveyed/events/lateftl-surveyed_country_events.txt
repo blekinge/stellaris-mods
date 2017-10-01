@@ -1,0 +1,34 @@
+namespace = lateftl_surveyed
+
+# The event that starts it all
+country_event = {
+	id = lateftl_surveyed.1
+    hide_window = yes
+
+	trigger = {
+	    NOT = { has_country_flag = lateftl_surveyed_starting_event }
+	    #Always trigger
+		always = yes
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = lateftl_surveyed_starting_event
+
+		owner = { save_event_target_as = space_owner }
+
+
+        solar_system = {
+            every_system_planet = {
+                surveyed = {
+                    set_surveyed = yes
+                    surveyor = event_target:space_owner
+                }
+            }
+        }
+
+
+	}
+
+}
